@@ -19,7 +19,6 @@ class TodoTile extends StatefulWidget {
   State<TodoTile> createState() => _TodoTileState();
 }
 
-class _TodoTileState extends State<TodoTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
