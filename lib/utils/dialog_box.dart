@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/utils/my_button.dart';
 
-class DailogBox extends StatelessWidget {
+class DialogBox extends StatelessWidget {
   final controller;
   final VoidCallback onSave;
   final VoidCallback onCancel;
-  const DailogBox({
+  const DialogBox({
     super.key,
     required this.controller,
     required this.onSave,

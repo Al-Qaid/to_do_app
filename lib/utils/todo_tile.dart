@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class TodoTile extends StatefulWidget {
+class TodoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   final Function(bool?)? onChanged;
-  final Function(BuildContext)? deleteMethod;
+  final Function(BuildContext)? deletfunction;
 
   const TodoTile({
     super.key,
     required this.taskName,
     required this.taskCompleted,
     required this.onChanged,
-    required this.deleteMethod,
+    required this.deletfunction,
     });
 
-  @override
-  State<TodoTile> createState() => _TodoTileState();
-}
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class TodoTile extends StatefulWidget {
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              onPressed: deleteMethod,
+              onPressed: deletfunction,
               icon: Icons.delete_forever,
               backgroundColor: Theme.of(context).colorScheme.error,
               borderRadius: BorderRadius.circular(40),
