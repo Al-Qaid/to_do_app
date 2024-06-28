@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/pages/about_page.dart';
 import 'package:todo_app/pages/feedback_page.dart';
 import 'package:todo_app/pages/home_page.dart';
@@ -11,8 +12,12 @@ Future<void> main() async {
   await Hive.initFlutter();
   // open a box 
   var Box = await Hive.openBox('mybox');
+
+  // init shared preferences
+  final prefs = await SharedPreferences.getInstance();
+
   runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
+    create: (context) => ThemeProvider(prefs: prefs),
     child: const MyApp(),
   ));
 }
